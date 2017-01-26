@@ -23,6 +23,9 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 }
+kapt {
+    generateStubs = true
+}
 
 dependencies {
 
@@ -39,6 +42,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:${kotlin_version}"
     apt "com.google.dagger:dagger-compiler:${dagger_version}"
+    kapt "com.google.dagger:dagger-compiler:${dagger_version}"
     provided 'javax.annotation:jsr250-api:1.0'
 
     compile "com.squareup.retrofit:retrofit:${retrofit_version}"

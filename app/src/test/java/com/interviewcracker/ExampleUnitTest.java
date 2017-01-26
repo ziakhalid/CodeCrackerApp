@@ -1,4 +1,4 @@
-package family.khalid.zia.interviewcracker;
+package com.interviewcracker;
 
 import org.junit.Test;
 

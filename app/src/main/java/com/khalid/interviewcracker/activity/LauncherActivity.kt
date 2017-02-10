@@ -20,5 +20,6 @@ class LauncherActivity : AppCompatActivity() {
         Observable.timer(3, TimeUnit.SECONDS).subscribe({ it ->
             startActivity(Intent(this, HomeActivity::class.java))
         }, { e -> Timber.e("Error : $e") })
+        finish()
     }
 }

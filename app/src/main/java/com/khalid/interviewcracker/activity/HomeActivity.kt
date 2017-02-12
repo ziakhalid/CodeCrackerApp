@@ -1,13 +1,13 @@
 package com.khalid.interviewcracker.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-
 import com.interviewcracker.R
 import com.khalid.interviewcracker.fragment.HomeFragment
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -18,7 +18,9 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
         changeFragment(HomeFragment())
+
     }
+
 
     fun changeFragment(f: Fragment, cleanStack: Boolean = false) {
         val ft = supportFragmentManager.beginTransaction();

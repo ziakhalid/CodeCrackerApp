@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">InterviewCracker</string>
+
+    <!--Preference Key-->
+    <string name="preference_proxy_server_address">proxy_server_address</string>
+
 </resources>

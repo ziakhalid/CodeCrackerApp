@@ -6,6 +6,7 @@ import com.interviewcracker.BuildConfig;
 import com.khalid.interviewcracker.dagger.AppComponent;
 import com.khalid.interviewcracker.dagger.AppModule;
 import com.khalid.interviewcracker.dagger.DaggerAppComponent;
+import com.khalid.interviewcracker.server.MockModeShim;
 
 import timber.log.Timber;
 
@@ -21,6 +22,10 @@ public class ICApplication extends Application {
 
 		if (BuildConfig.DEBUG) {
 			Timber.plant(new Timber.DebugTree());
+		}
+
+		if (BuildConfig.DEBUG){
+			MockModeShim.initMockWebServer(this);
 		}
 
 		appComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();

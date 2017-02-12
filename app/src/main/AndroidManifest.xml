@@ -2,6 +2,8 @@
 <manifest package="com.interviewcracker"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.khalid.interviewcracker.ICApplication"
         android:allowBackup="true"
@@ -20,7 +22,7 @@
         </activity>
         <activity
             android:name="com.khalid.interviewcracker.activity.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

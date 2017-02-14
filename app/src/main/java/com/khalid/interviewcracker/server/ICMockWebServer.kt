@@ -16,12 +16,6 @@ class ICMockWebServer(val context: Context) {
     init {
         mockWebServer = MockWebServer()
 
-/*
-        val root = File("../mocked").canonicalPath
-        println("Template path: " + root)
-        val opener = FileSystemOpener(root)
-*/
-
         val openerAndroid = AndroidFileOpener(context)
 
         dispatcher = ICDispatcher(openerAndroid)

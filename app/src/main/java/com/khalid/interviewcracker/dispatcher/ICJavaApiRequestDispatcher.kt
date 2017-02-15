@@ -35,7 +35,7 @@ class ICJavaApiRequestDispatcher(fileOpner: FileOpener) : AbstractDispatcher(fil
         companion object {
             fun getTopicsResponseFilePath(params: MutableMap<String, String>): String {
                 val fileName = "happy_topics"
-                return "ICSharedData/api/java/topics/$fileName.json"
+                return "api/java/topics/$fileName.json"
             }
 
         }

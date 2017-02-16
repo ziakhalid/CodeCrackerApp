@@ -10,7 +10,7 @@ import com.khalid.interviewcracker.model.TopicItem
 import com.khalid.interviewcracker.util.AdapterConstants
 import java.util.*
 
-class TopicsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TopicsAdapter (listener: TopicsDelegateAdapter.onViewSelectedListener): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: ArrayList<ViewType>
     private var delegateAdapter = SparseArrayCompat<ViewTypeDelegateAdapter>()
@@ -20,7 +20,7 @@ class TopicsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     init {
         delegateAdapter.put(AdapterConstants.LOADING, LoadingDelegateAdapter())
-        delegateAdapter.put(AdapterConstants.TOPIC, TopicsDelegateAdapter())
+        delegateAdapter.put(AdapterConstants.TOPIC, TopicsDelegateAdapter(listener))
         items = ArrayList()
         items.add(loadingItem)
     }

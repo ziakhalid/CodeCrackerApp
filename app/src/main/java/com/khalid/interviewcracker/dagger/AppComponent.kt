@@ -4,6 +4,7 @@ import javax.inject.Singleton
 
 import com.khalid.interviewcracker.activity.LauncherActivity
 import com.khalid.interviewcracker.fragment.HomeFragment
+import com.khalid.interviewcracker.util.AndroidFileOpener
 
 import dagger.Component
 
@@ -12,5 +13,6 @@ import dagger.Component
 interface AppComponent {
     fun inject(target: LauncherActivity)
     fun inject(target: HomeFragment)
+    fun inject(target: AndroidFileOpener)
 
 }

@@ -12,16 +12,12 @@ import timber.log.Timber
 
 class ICApplication : Application() {
 
-
     companion object {
-      @JvmStatic  lateinit var appComponent: AppComponent
+        lateinit var appComponent: AppComponent
     }
-
-    lateinit var instance: ICApplication
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
 
         appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
 

@@ -8,7 +8,7 @@ import okhttp3.mockwebserver.MockWebServer
 import java.io.File
 import java.net.InetAddress
 
-class ICMockWebServer(val context: Context) {
+class ICMockWebServer() {
 
     var mockWebServer: MockWebServer
     val dispatcher: ICDispatcher
@@ -16,7 +16,7 @@ class ICMockWebServer(val context: Context) {
     init {
         mockWebServer = MockWebServer()
 
-        val openerAndroid = AndroidFileOpener(context)
+        val openerAndroid = AndroidFileOpener()
 
         dispatcher = ICDispatcher(openerAndroid)
         mockWebServer.setDispatcher(dispatcher)

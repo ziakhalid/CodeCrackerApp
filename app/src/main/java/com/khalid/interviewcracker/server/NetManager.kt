@@ -3,8 +3,10 @@ package com.khalid.interviewcracker.server
 import android.content.Context
 import com.khalid.interviewcracker.model.TopicItem
 import rx.Observable
+import javax.inject.Inject
 
-class NetManager(context:Context, private val api:RestAPI = RestAPI(context)) {
+//class NetManager(context:Context, private val api:RestAPI = RestAPI(context)) {
+class NetManager @Inject constructor(private val api:ICJavaRestApi){
 
    fun getICTopics():Observable<List<TopicItem>>{
        return Observable.create { subscriber ->

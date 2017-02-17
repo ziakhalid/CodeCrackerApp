@@ -9,7 +9,12 @@ import com.khalid.interviewcracker.extensions.inflate
 import com.khalid.interviewcracker.model.TopicItem
 import kotlinx.android.synthetic.main.topic_item.view.*
 
-class TopicsDelegateAdapter : ViewTypeDelegateAdapter {
+class TopicsDelegateAdapter(val viewAction: onViewSelectedListener) : ViewTypeDelegateAdapter {
+
+    interface onViewSelectedListener {
+        fun onItemSelected(topic: String)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         return TopicsViewHolder(parent)
     }
@@ -24,6 +29,8 @@ class TopicsDelegateAdapter : ViewTypeDelegateAdapter {
         fun bind(item: TopicItem) = with(itemView) {
             txt_topic_name.text = item.topic
             txt_topic_detail.text = "${item.questionCount} questions"
+
+            super.itemView.setOnClickListener { viewAction.onItemSelected(item.topic) }
         }
 
     }

@@ -1,19 +1,21 @@
-package com.khalid.interviewcracker.server
+package com.khalid.interviewcracker.dagger
 
 import android.content.Context
-import com.khalid.interviewcracker.model.ICTopicsResponse
+import com.khalid.interviewcracker.server.EndpointProvider
+import dagger.Module
+import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Singleton
 
+@Module
+class NetworkModule {
 
-class RestAPI(context:Context) {
-
-    private val iCJavaApi: ICJavaApi
-
-    init {
+    @Provides
+    @Singleton
+    fun providesRetrofit(context: Context): Retrofit {
 
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
@@ -26,10 +28,6 @@ class RestAPI(context:Context) {
                 .client(httpClient.build())
                 .build()
 
-        iCJavaApi = retrofit.create(ICJavaApi::class.java)
-    }
-
-    fun getTopics(): Call<ICTopicsResponse> {
-        return iCJavaApi.getTopics("123456")
+        return retrofit
     }
 }

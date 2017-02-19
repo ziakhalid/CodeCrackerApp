@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="launcherBackground">#4f4c44</color>
     <color name="textColorLauncher">#ffffff</color>
+    <color name="qa_text_color">@color/gray7</color>
 </resources>

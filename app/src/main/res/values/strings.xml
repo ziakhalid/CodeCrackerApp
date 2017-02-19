@@ -3,5 +3,6 @@
 
     <!--Preference Key-->
     <string name="preference_proxy_server_address">proxy_server_address</string>
+    <string name="show_answer">Show Answer</string>
 
 </resources>

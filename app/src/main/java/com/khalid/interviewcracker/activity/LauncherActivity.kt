@@ -7,7 +7,6 @@ import android.widget.TextView
 import com.interviewcracker.R
 import kotlinx.android.synthetic.main.launcher_activity.*
 import rx.Observable
-import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 class LauncherActivity : AppCompatActivity() {

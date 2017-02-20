@@ -29,7 +29,8 @@ class LauncherActivityTest {
     fun shouldShowTheHomeFragmentWithRecyclerViewAfterSomeDelay() {
         val idlingResource = startTiming(4000)
         onView(withText("la la la")).check(matches(isDisplayed()))
-        onView(withId(R.id.topics_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
+//        onView(withId(R.id.topics_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
+        onView(withId(R.id.topics_list)).perform(RecyclerViewActions.scrollTo<RecyclerView.ViewHolder>(withTopicViewName("topic8")))
         onView(withText("topic8")).check(matches(isDisplayed()))
         stopTiming(idlingResource)
     }

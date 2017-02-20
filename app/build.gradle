@@ -85,10 +85,17 @@ dependencies {
     testCompile "org.robolectric:shadows-multidex:${roboVersion}"
     testCompile 'org.mockito:mockito-core:2.0.31-beta'
 
-    def espressoVersion = '2.2.2'
+    def espressoVersion = '2.2.1'
     androidTestCompile("com.android.support.test.espresso:espresso-core:${espressoVersion}", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    androidTestCompile ("com.android.support.test.espresso:espresso-contrib:${espressoVersion}") {
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+        exclude module: 'support-v13'
+        exclude module: 'recyclerview-v7'
+    }
+
 
 }
 repositories {

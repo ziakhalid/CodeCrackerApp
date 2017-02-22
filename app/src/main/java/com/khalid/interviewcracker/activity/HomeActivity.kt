@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
 
         override fun onNext(topic: String?) {
             Toast.makeText(this@HomeActivity, "Topic: $topic Selected", Toast.LENGTH_LONG).show()
-            changeFragment(QAFragment(), QAFragment::class.java.simpleName)
+            changeFragment(QAFragment(), QAFragment::class.java.simpleName, isReplaceFragment = false)
         }
 
         override fun onCompleted() {
@@ -37,14 +37,14 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
-    fun changeFragment(f: Fragment, className: String? = null, cleanStack: Boolean = false) {
+    fun changeFragment(f: Fragment, className: String? = null, cleanStack: Boolean = false, isReplaceFragment:Boolean = true) {
         val ft = supportFragmentManager.beginTransaction()
         if (cleanStack) {
             clearBackStack()
         }
         ft.setCustomAnimations(
                 R.anim.abc_fade_in, R.anim.abc_fade_out, R.anim.abc_popup_enter, R.anim.abc_popup_exit)
-        ft.replace(R.id.activity_base_content, f)
+        if (isReplaceFragment) ft.replace(R.id.activity_base_content, f) else ft.add(R.id.activity_base_content, f)
         ft.addToBackStack(className)
         ft.commit()
     }

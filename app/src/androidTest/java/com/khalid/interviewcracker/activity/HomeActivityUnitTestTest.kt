@@ -12,7 +12,7 @@ import com.interviewcracker.R
 import org.junit.Rule
 import org.junit.Test
 
-class HomeActivityTest {
+class HomeActivityUnitTestTest {
 
     @get:Rule
     val activityTestRule: ActivityTestRule<HomeActivity> = ActivityTestRule(HomeActivity::class.java)

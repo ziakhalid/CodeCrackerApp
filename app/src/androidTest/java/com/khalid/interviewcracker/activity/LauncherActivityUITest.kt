@@ -12,7 +12,7 @@ import org.junit.runner.RunWith
 
 
 @RunWith(AndroidJUnit4::class)
-class LauncherActivityTest {
+class LauncherActivityUITest {
 
     @get:Rule
     val activityTestRule: ActivityTestRule<LauncherActivity> = ActivityTestRule(LauncherActivity::class.java)

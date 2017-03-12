@@ -57,9 +57,6 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Finish activity when reaching the last fragment.
-     */
     override fun onBackPressed() {
         val fragmentManager = supportFragmentManager
         if (fragmentManager.backStackEntryCount > 1) {

@@ -6,4 +6,14 @@
     <color name="launcherBackground">#4f4c44</color>
     <color name="textColorLauncher">#ffffff</color>
     <color name="qa_text_color">@color/gray7</color>
+
+    <!-- Preferences Activity -->
+    <color name="preferences_text">#495863</color>
+    <color name="preferences_activity_bg">#eceff1</color>
+    <color name="preferences_category_bg">#c0c7cd</color>
+    <color name="preferences_divider">#c0c7cd</color>
+    <color name="preferences_highlight">#40000000</color>
+
+    <color name="lighter_gray_no_transparent">#FFDDDDDD</color>
+
 </resources>

@@ -4,5 +4,10 @@
     <!--Preference Key-->
     <string name="preference_proxy_server_address">proxy_server_address</string>
     <string name="show_answer">Show Answer</string>
+    <string name="preference_which_api_to_use_key">which_api</string>
+
+    <!--Menu-->
+    <string name="menu_settings">Settings</string>
+    <string name="settings">Settings</string>
 
 </resources>

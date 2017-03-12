@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.interviewcracker"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.interviewcracker">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -23,6 +23,9 @@
         <activity
             android:name="com.khalid.interviewcracker.activity.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.khalid.interviewcracker.activity.ICPreferenceActivity"
+            android:theme="@style/Theme.Phone.Preferences" />
     </application>
 
 </manifest>

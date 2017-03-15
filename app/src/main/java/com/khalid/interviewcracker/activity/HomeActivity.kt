@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         initToolbar()
         setNormalToolbar()
-        changeFragment(HomeFragment(buttonClickObserver), HomeFragment::class.java.simpleName)
+        changeFragment(HomeFragment.getInstance(buttonClickObserver), HomeFragment::class.java.simpleName)
     }
 
     private fun initToolbar() {
@@ -50,7 +50,6 @@ class HomeActivity : AppCompatActivity() {
         toolbar.title = "TOPICS"
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
@@ -62,7 +61,6 @@ class HomeActivity : AppCompatActivity() {
         }
         return true
     }
-
 
     fun changeFragment(f: Fragment, className: String? = null, cleanStack: Boolean = false, isReplaceFragment:Boolean = true) {
         val ft = supportFragmentManager.beginTransaction()

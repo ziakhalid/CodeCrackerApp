@@ -17,7 +17,7 @@ class LauncherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.launcher_activity)
         welcomeText.text = resources.getString(R.string.app_name)
-        Observable.timer(3, TimeUnit.SECONDS).subscribe({ it ->
+        Observable.timer(1, TimeUnit.SECONDS).subscribe({ it ->
             startActivity(Intent(this@LauncherActivity, HomeActivity::class.java))
             finish()
         })

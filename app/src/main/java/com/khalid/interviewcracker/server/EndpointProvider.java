@@ -1,8 +1,6 @@
 package com.khalid.interviewcracker.server;
 
 
-import java.util.EnumMap;
-
 import android.content.Context;
 
 import com.interviewcracker.R;
@@ -18,14 +16,47 @@ public class EndpointProvider {
 
 	public String getCustomServerAddress() {
 		String server = SettingUtils.get(context, R.string.preference_proxy_server_address, "localhost:3000");
+		return "https://" + server + "/";
+	}
+
+	public String getMockServerAddress() {
+		String server = SettingUtils.get(context, R.string.preference_mock_server_address, "localhost:3000");
 		return server;
 	}
 
-/*
-	public String getCustomServerAddress() {
-		String server = SettingUtils.get(context, R.string.preference_proxy_server_address, "localhost:3000");
-		return "https://" + server + "/";
+	public EndPoint getEndPoint() {
+
+		String which = SettingUtils.get(context, context.getString(R.string.preference_which_api_to_use_key), "");
+
+		if (which.equals("Custom Server")) {
+			return EndPoint.CUSTOM_SERVER;
+		}
+		else if (which.equals("Mock Mode")) {
+			return EndPoint.MOCK_MODE;
+		}
+		else {
+			return EndPoint.PRODUCTION;
+		}
 	}
-*/
+
+	public String getJavaEndpointUrl() {
+		String endpoint;
+		switch (getEndPoint()) {
+			case MOCK_MODE:
+				endpoint = getMockServerAddress();
+				break;
+			case CUSTOM_SERVER:
+				endpoint = getCustomServerAddress();
+				break;
+			case PRODUCTION:
+				endpoint = "";
+				break;
+			default:
+				endpoint = "";
+
+		}
+		return endpoint;
+	}
+
 
 }

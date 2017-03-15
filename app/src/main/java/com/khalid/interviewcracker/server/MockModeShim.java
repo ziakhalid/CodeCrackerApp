@@ -25,13 +25,9 @@ public class MockModeShim {
 					server.shutdown();
 					server = null;
 				}
-
 				server = new ICMockWebServer();
-
 				server.start();
-
-				SettingUtils.save(context, R.string.preference_proxy_server_address, server.getHostWithPort());
-
+				SettingUtils.save(context, R.string.preference_mock_server_address, server.getHostWithPort());
 				latch.countDown();
 			}
 		}).start();
@@ -42,6 +38,18 @@ public class MockModeShim {
 		catch (Throwable e) {
 			throw new RuntimeException("Problem waiting for mock web server to start", e);
 		}
+	}
+
+	public static void shutdownMockWebServer(){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				if (server != null){
+					server.shutdown();
+					server = null;
+				}
+			}
+		}).start();
 	}
 
 	public static ICDispatcher getDispatcher() {

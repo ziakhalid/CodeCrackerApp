@@ -12,6 +12,13 @@
             android:layout="@layout/preference"
             android:title="Select API" />
 
+        <EditTextPreference
+            android:defaultValue="localhost:8080"
+            android:key="@string/preference_proxy_server_address"
+            android:layout="@layout/preference"
+            android:summary="The address of your server/proxy (e.g., 192.168.0.5:3000 for proxy)"
+            android:title="Server/Proxy Address" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

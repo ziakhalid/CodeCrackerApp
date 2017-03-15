@@ -18,7 +18,17 @@ import rx.schedulers.Schedulers
 import timber.log.Timber
 import javax.inject.Inject
 
-class HomeFragment(val buttonClickObserver:Observer<String>) : BaseFragment(), TopicsDelegateAdapter.onViewSelectedListener {
+open class HomeFragment : BaseFragment(), TopicsDelegateAdapter.onViewSelectedListener {
+
+    lateinit var buttonClickObserver:Observer<String>
+
+    companion object {
+        fun getInstance(buttonClickObserver: Observer<String>): HomeFragment {
+            val homeFragment = HomeFragment()
+            homeFragment.buttonClickObserver = buttonClickObserver
+            return homeFragment
+        }
+    }
 
     override fun onItemSelected(topic: String) {
 

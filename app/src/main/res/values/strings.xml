@@ -2,6 +2,7 @@
     <string name="app_name">InterviewCracker</string>
 
     <!--Preference Key-->
+    <string name="preference_mock_server_address">proxy_mock_address</string>
     <string name="preference_proxy_server_address">proxy_server_address</string>
     <string name="show_answer">Show Answer</string>
     <string name="preference_which_api_to_use_key">which_api</string>

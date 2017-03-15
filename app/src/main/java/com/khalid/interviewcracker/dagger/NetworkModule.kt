@@ -15,7 +15,13 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesRetrofit(context: Context): Retrofit {
+    fun providesEndpointProvider(context: Context): EndpointProvider{
+        return EndpointProvider(context)
+    }
+
+    @Provides
+    @Singleton
+    fun providesRetrofit(endpointProvider: EndpointProvider): Retrofit {
 
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
@@ -23,7 +29,7 @@ class NetworkModule {
         httpClient.addInterceptor(logging)
 
         val retrofit = Retrofit.Builder()
-                .baseUrl(EndpointProvider(context).customServerAddress)
+                .baseUrl(endpointProvider.javaEndpointUrl)
                 .addConverterFactory(MoshiConverterFactory.create())
                 .client(httpClient.build())
                 .build()

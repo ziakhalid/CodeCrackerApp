@@ -26,7 +26,7 @@ public class EndpointProvider {
 
 	public EndPoint getEndPoint() {
 
-		String which = SettingUtils.get(context, context.getString(R.string.preference_which_api_to_use_key), "");
+		String which = SettingUtils.get(context, context.getString(R.string.preference_which_api_to_use_key), "Mock Mode");
 
 		if (which.equals("Custom Server")) {
 			return EndPoint.CUSTOM_SERVER;

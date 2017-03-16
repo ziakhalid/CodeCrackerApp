@@ -1,40 +1,28 @@
 {
-  "data":{
-    "children":[
+  "data": {
+    "children": [
       {
-        "topicName":"la la la",
-        "questionCount":25
+        "id": "1",
+        "name": "la la la",
+        "questionCount": 25
       },
       {
-        "topicName":"Inner Class",
-        "questionCount":5
+        "id": "2",
+        "name": "topic2",
+        "questionCount": 25
       },
       {
-        "topicName":"topic3",
-        "questionCount":3
+        "id": "3",
+        "name": "topic3",
+        "questionCount": 25
       },
       {
-        "topicName":"topic4",
-        "questionCount":4
-      },
-      {
-        "topicName":"topic5",
-        "questionCount":5
-      },
-      {
-        "topicName":"topic6",
-        "questionCount":6
-      },
-      {
-        "topicName":"topic7",
-        "questionCount":7
-      },
-      {
-        "topicName":"topic8",
-        "questionCount":8
+        "id": "4",
+        "name": "topic4",
+        "questionCount": 25
       }
     ],
-    "after":null,
-    "before":null
+    "after": null,
+    "before": null
   }
 }

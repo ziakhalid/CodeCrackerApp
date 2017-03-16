@@ -9,6 +9,7 @@ class ICTopicsDataResponse(val children: List<ICChildrenResponse>,
                            val before: String?)
 
 class ICChildrenResponse(
-        val topicName: String,
+        val id: String,
+        val name: String,
         val questionCount: Int
 )

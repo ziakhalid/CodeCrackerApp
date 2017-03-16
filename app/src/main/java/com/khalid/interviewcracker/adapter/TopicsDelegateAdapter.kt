@@ -27,10 +27,10 @@ class TopicsDelegateAdapter(val viewAction: onViewSelectedListener) : ViewTypeDe
     inner class TopicsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.topic_item)) {
 
         fun bind(item: TopicItem) = with(itemView) {
-            txt_topic_name.text = item.topic
+            txt_topic_name.text = item.name
             txt_topic_detail.text = "${item.questionCount} questions"
 
-            super.itemView.setOnClickListener { viewAction.onItemSelected(item.topic) }
+            super.itemView.setOnClickListener { viewAction.onItemSelected(item.name) }
         }
 
     }

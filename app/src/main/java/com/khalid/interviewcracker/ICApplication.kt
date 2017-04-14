@@ -1,6 +1,7 @@
 package com.khalid.interviewcracker
 
 import android.app.Application
+import com.facebook.stetho.Stetho
 
 import com.interviewcracker.BuildConfig
 import com.interviewcracker.R
@@ -23,6 +24,7 @@ class ICApplication : Application() {
         super.onCreate()
 
         appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
+        Stetho.initializeWithDefaults(this);
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())

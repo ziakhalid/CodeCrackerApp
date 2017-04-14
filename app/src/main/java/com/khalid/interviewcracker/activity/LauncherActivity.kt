@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.interviewcracker.R
+import com.khalid.interviewcracker.util.SettingUtils
 import kotlinx.android.synthetic.main.launcher_activity.*
 import rx.Observable
 import java.util.concurrent.TimeUnit
@@ -17,8 +18,14 @@ class LauncherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.launcher_activity)
         welcomeText.text = resources.getString(R.string.app_name)
-        Observable.timer(1, TimeUnit.SECONDS).subscribe({ it ->
-            startActivity(Intent(this@LauncherActivity, HomeActivity::class.java))
+        val isUserLoggedIn = SettingUtils.get(this@LauncherActivity, getString(R.string.preference_is_user_login), false)
+
+        Observable.timer(1, TimeUnit.SECONDS).subscribe({
+            if (isUserLoggedIn) {
+                startActivity(Intent(this@LauncherActivity, HomeActivity::class.java))
+            } else {
+                startActivity(Intent(this@LauncherActivity, LoginActivity::class.java))
+            }
             finish()
         })
     }

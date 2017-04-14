@@ -16,7 +16,7 @@ public class EndpointProvider {
 
 	public String getCustomServerAddress() {
 		String server = SettingUtils.get(context, R.string.preference_proxy_server_address, "localhost:3000");
-		return "https://" + server + "/";
+		return "http://" + server + "/";
 	}
 
 	public String getMockServerAddress() {

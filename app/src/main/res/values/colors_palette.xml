@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- When editing/adding colors to this file please first refer to the following wiki:
+    https://github.com/ExpediaInc/ewe-android-eb/wiki/Design:-colors.xml-&-colors_palette.xml-best-practices.-->
+    <!-- LOB colors -->
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="gray1">#EEEEEE</color> <!-- Lightest gray, used for backgrounds (behind cardviews etc) -->
+    <color name="gray2">#D6D6D6</color>
+    <color name="gray3">#B9B9B9</color>
+    <color name="gray4">#9C9C9C</color>
+    <color name="gray5">#868686</color> <!-- Medium gray -->
+    <color name="gray6">#767676</color> <!--This is the lightest gray value we should use for text (accessibility)-->
+    <color name="gray7">#656565</color>
+    <color name="gray8">#585858</color>
+    <color name="gray9">#4A4A4A</color>
+    <color name="gray10">#3C3C3C</color> <!-- Darkest gray -->
+    <color name="black">#FF000000</color>
+
+    <!-- alpha colors http://stackoverflow.com/questions/15852122/hex-transparency-in-colors-->
+    <color name="white_19">#30FFFFFF</color> <!-- Disabled white text -->
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_25">#40FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="gray6_65">#A6767676</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_40">#64000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_70">#BF000000</color>
+
+</resources>

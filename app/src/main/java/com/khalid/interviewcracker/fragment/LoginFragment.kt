@@ -72,7 +72,6 @@ open class LoginFragment : BaseFragment() {
                 }
 
         val signInButtonSubscription = RxView.clicks(signInButton).subscribe {
-            Toast.makeText(context, "Hi ther", Toast.LENGTH_LONG).show()
             val userName = editUsername.text.toString()
             val userPassword = editPassword.text.toString()
 
@@ -94,6 +93,7 @@ open class LoginFragment : BaseFragment() {
                 .subscribe({ it ->
                     if (it.equals("Success")) {
                         startActivity(Intent(context, HomeActivity::class.java))
+                        SettingUtils.save(context, getString(R.string.preference_is_user_login), true)
                         activity.finish()
                     }
                 }, { Toast.makeText(context, "Oops! something wrong happned", Toast.LENGTH_SHORT).show() })

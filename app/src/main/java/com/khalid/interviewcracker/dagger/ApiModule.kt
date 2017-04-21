@@ -1,5 +1,6 @@
 package com.khalid.interviewcracker.dagger
 
+import android.content.Context
 import com.khalid.interviewcracker.server.ICJavaApi
 import com.khalid.interviewcracker.server.ICJavaRestApi
 import dagger.Module
@@ -12,8 +13,8 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun providesICJavaRestApi(icJavaApi: ICJavaApi):ICJavaRestApi{
-        return ICJavaRestApi(icJavaApi)
+    fun providesICJavaRestApi(icJavaApi: ICJavaApi, context: Context):ICJavaRestApi{
+        return ICJavaRestApi(icJavaApi, context)
     }
 
     @Provides

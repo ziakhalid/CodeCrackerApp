@@ -26,6 +26,9 @@
         <activity
             android:name="com.khalid.interviewcracker.activity.ICPreferenceActivity"
             android:theme="@style/Theme.Phone.Preferences" />
+        <activity
+            android:name="com.khalid.interviewcracker.activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

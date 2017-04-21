@@ -1,17 +1,22 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-ext.supportLibVersion = "25.1.0"
-ext.okhttp_version = '3.6.0'
-ext.compileSdkVersion = 25
-ext.buildToolsVersion = "25.0.1"
+ext{
+    supportLibVersion = "25.1.0"
+    okhttp_version = '3.6.0'
+    compileSdkVersion = 25
+    buildToolsVersion = "25.0.1"
+}
 
 buildscript {
-    ext.kotlin_version = '1.1.0'
-    ext.okhttp_version = '3.6.0'
-    ext.rxjava_version = '1.2.5'
-    ext.dagger_version = '2.4'
-    ext.retrofit2_version = '2.1.0'
-    ext.butterknife_version = '8.5.1'
+
+    ext {
+        kotlin_version = '1.1.0'
+        okhttp_version = '3.6.0'
+        rxjava_version = '1.2.5'
+        dagger_version = '2.4'
+        retrofit2_version = '2.1.0'
+        butterknife_version = '8.5.1'
+    }
 
     repositories {
         jcenter()

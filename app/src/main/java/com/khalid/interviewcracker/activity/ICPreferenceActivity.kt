@@ -6,7 +6,7 @@ import android.view.MenuItem
 import com.interviewcracker.R
 import com.khalid.interviewcracker.fragment.ICPreferenceFragment
 
-open class ICPreferenceActivity : AppCompatActivity() {
+open class ICPreferenceActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

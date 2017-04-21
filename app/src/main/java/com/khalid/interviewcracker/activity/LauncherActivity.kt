@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.launcher_activity.*
 import rx.Observable
 import java.util.concurrent.TimeUnit
 
-class LauncherActivity : AppCompatActivity() {
+class LauncherActivity : BaseActivity() {
 
     val welcomeText: TextView by lazy { welcome_message }
 
@@ -20,7 +20,7 @@ class LauncherActivity : AppCompatActivity() {
         welcomeText.text = resources.getString(R.string.app_name)
         val isUserLoggedIn = SettingUtils.get(this@LauncherActivity, getString(R.string.preference_is_user_login), false)
 
-        Observable.timer(1, TimeUnit.SECONDS).subscribe({
+        val subscription = Observable.timer(1, TimeUnit.SECONDS).subscribe({
             if (isUserLoggedIn) {
                 startActivity(Intent(this@LauncherActivity, HomeActivity::class.java))
             } else {
@@ -28,5 +28,7 @@ class LauncherActivity : AppCompatActivity() {
             }
             finish()
         })
+
+        subscriptions.add(subscription)
     }
 }

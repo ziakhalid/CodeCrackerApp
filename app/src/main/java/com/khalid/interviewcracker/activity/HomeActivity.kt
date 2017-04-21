@@ -15,7 +15,7 @@ import com.khalid.interviewcracker.fragment.QAFragment
 import rx.Observer
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     val toolbar by lazy {findViewById(R.id.toolbar) as Toolbar}
 

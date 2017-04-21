@@ -11,7 +11,7 @@ import android.view.MenuItem
 import com.interviewcracker.R
 import com.khalid.interviewcracker.fragment.LoginFragment
 
-class LoginActivity: AppCompatActivity() {
+class LoginActivity: BaseActivity() {
 
     val toolbar:Toolbar by lazy { findViewById(R.id.toolbar) as Toolbar}
 

@@ -13,5 +13,5 @@ interface ICJavaApi {
     fun authenticateLogin(@Header("Authorization") auth:String): Call<ICLoginResponse>
 
     @GET("/api/java/topics")
-    fun getTopics(@Query("apiKey") apiKey:String): Call<ICTopicsResponse>
+    fun getTopics(@Header("Authorization") auth:String): Call<ICTopicsResponse>
 }

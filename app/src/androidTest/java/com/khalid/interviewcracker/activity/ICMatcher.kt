@@ -1,9 +1,9 @@
-package com.khalid.interviewcracker.activity
+package com.khalid.codecracker.activity
 
 import android.text.TextUtils
 import android.view.View
 import android.widget.TextView
-import com.interviewcracker.R
+import com.codecracker.R
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher

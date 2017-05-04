@@ -1,4 +1,4 @@
-package com.khalid.interviewcracker.activity
+package com.khalid.codecracker.activity
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
@@ -8,7 +8,7 @@ import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.v7.widget.RecyclerView
-import com.interviewcracker.R
+import com.codecracker.R
 import org.junit.Rule
 import org.junit.Test
 

@@ -8,7 +8,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
-        applicationId "com.interviewcracker"
+        applicationId "com.codecracker"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1

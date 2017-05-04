@@ -1,4 +1,4 @@
-package com.khalid.interviewcracker.activity
+package com.khalid.codecracker.activity
 
 import android.support.test.espresso.Espresso
 import android.support.test.espresso.IdlingResource

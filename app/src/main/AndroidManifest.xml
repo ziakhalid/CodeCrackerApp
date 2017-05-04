@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.interviewcracker">
+    package="com.codecracker">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.khalid.interviewcracker.ICApplication"
+        android:name="com.khalid.codecracker.CCApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.khalid.interviewcracker.activity.LauncherActivity"
+            android:name="com.khalid.codecracker.activity.LauncherActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.khalid.interviewcracker.activity.HomeActivity"
+            android:name="com.khalid.codecracker.activity.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.khalid.interviewcracker.activity.ICPreferenceActivity"
+            android:name="com.khalid.codecracker.activity.ICPreferenceActivity"
             android:theme="@style/Theme.Phone.Preferences" />
         <activity
-            android:name="com.khalid.interviewcracker.activity.LoginActivity"
+            android:name="com.khalid.codecracker.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

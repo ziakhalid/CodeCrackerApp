@@ -10,7 +10,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import com.codecracker.R
 import com.khalid.codecracker.fragment.HomeFragment
-import com.khalid.codecracker.fragment.QAFragment
+import com.khalid.codecracker.fragment.TopicDetailFragment
 import rx.Observer
 
 
@@ -24,7 +24,7 @@ class HomeActivity : BaseActivity() {
 
         override fun onNext(topic: String?) {
             Toast.makeText(this@HomeActivity, "Topic: $topic Selected", Toast.LENGTH_LONG).show()
-            changeFragment(QAFragment(), QAFragment::class.java.simpleName, isReplaceFragment = false)
+            changeFragment(TopicDetailFragment(), TopicDetailFragment::class.java.simpleName, isReplaceFragment = false)
         }
 
         override fun onCompleted() {

@@ -6,6 +6,7 @@ import com.facebook.stetho.Stetho
 import com.khalid.codecracker.dagger.AppComponent
 import com.khalid.codecracker.dagger.AppModule
 import com.khalid.codecracker.dagger.DaggerAppComponent
+import com.khalid.codecracker.widget.FontCache
 import timber.log.Timber
 
 class CCApplication : Application() {
@@ -19,6 +20,7 @@ class CCApplication : Application() {
 
         appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
         Stetho.initializeWithDefaults(this)
+        FontCache.initialize(this)
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())

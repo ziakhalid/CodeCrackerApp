@@ -7,7 +7,7 @@
     tools:context="com.khalid.codecracker.activity.LauncherActivity"
     android:background="@color/launcherBackground">
 
-    <TextView
+    <com.khalid.codecracker.widget.TextView
         android:id="@+id/welcome_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

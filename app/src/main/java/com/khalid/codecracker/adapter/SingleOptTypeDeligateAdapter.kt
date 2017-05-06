@@ -7,10 +7,10 @@ import com.droidcba.kedditbysteps.commons.adapter.ViewType
 import com.droidcba.kedditbysteps.commons.adapter.ViewTypeDelegateAdapter
 import com.khalid.codecracker.extensions.inflate
 import com.khalid.codecracker.model.TopicDetailItem
-import kotlinx.android.synthetic.main.single_opt_type.view.*
+import kotlinx.android.synthetic.main.single_opt_type_row.view.*
 
 
-class SingleQueTypeDeligateAdapter(val viewAction: onViewSelectedListener) : ViewTypeDelegateAdapter {
+class SingleOptTypeDeligateAdapter(val viewAction: onViewSelectedListener) : ViewTypeDelegateAdapter {
 
     interface onViewSelectedListener {
         fun onItemSelected(topic: String)

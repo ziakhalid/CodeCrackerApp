@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.codecracker.R
 import com.khalid.codecracker.CCApplication
-import com.khalid.codecracker.adapter.SingleQueTypeDeligateAdapter
+import com.khalid.codecracker.adapter.SingleOptTypeDeligateAdapter
 import com.khalid.codecracker.adapter.TopicDetailAdapter
 import com.khalid.codecracker.extensions.inflate
 import com.khalid.codecracker.model.TopicDetailItem
 
-class TopicDetailFragment : BaseFragment(),SingleQueTypeDeligateAdapter.onViewSelectedListener {
+class TopicDetailFragment : BaseFragment(), SingleOptTypeDeligateAdapter.onViewSelectedListener {
 
 
    lateinit var topicsDetailList:RecyclerView

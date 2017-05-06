@@ -1,4 +1,4 @@
-package com.expedia.bookings.utils
+package com.khalid.codecracker.utility
 
 /**
 Copyright 2014 Jake Wharton

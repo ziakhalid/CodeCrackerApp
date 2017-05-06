@@ -9,7 +9,7 @@ import com.droidcba.kedditbysteps.features.news.adapter.LoadingDelegateAdapter
 import com.khalid.codecracker.model.TopicDetailItem
 import com.khalid.codecracker.util.AdapterConstants
 
-class TopicDetailAdapter(listener: SingleQueTypeDeligateAdapter.onViewSelectedListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TopicDetailAdapter(listener: SingleOptTypeDeligateAdapter.onViewSelectedListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: ArrayList<ViewType>
     private var delegateAdapter = SparseArrayCompat<ViewTypeDelegateAdapter>()
@@ -19,7 +19,7 @@ class TopicDetailAdapter(listener: SingleQueTypeDeligateAdapter.onViewSelectedLi
 
     init {
         delegateAdapter.put(AdapterConstants.LOADING, LoadingDelegateAdapter())
-        delegateAdapter.put(AdapterConstants.SINGLE_OPT_TYPE, SingleQueTypeDeligateAdapter(listener))
+        delegateAdapter.put(AdapterConstants.SINGLE_OPT_TYPE, SingleOptTypeDeligateAdapter(listener))
         items = ArrayList()
         items.add(loadingItem)
     }

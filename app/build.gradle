@@ -16,7 +16,14 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            applicationIdSuffix("." + GradleUtil.getBuildIdentifier(project))
+        }
         release {
+            if (GradleUtil.isUsabilityBuild(project)) {
+                applicationIdSuffix("." + GradleUtil.getBuildIdentifier(project))
+            }
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -56,7 +63,6 @@ dependencies {
     compile "io.reactivex:rxjava:${rxjava_version}"
     compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'
 
-
     // Dagger 2
     compile "com.google.dagger:dagger:${dagger_version}"
     kapt "com.google.dagger:dagger-compiler:${dagger_version}"
@@ -89,7 +95,7 @@ dependencies {
     androidTestCompile("com.android.support.test.espresso:espresso-core:${espressoVersion}", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    androidTestCompile ("com.android.support.test.espresso:espresso-contrib:${espressoVersion}") {
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:${espressoVersion}") {
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
         exclude module: 'support-v13'
@@ -103,4 +109,24 @@ repositories {
     maven {
         url "http://repository.jetbrains.com/all"
     }
+}
+
+public class GradleUtil {
+
+    static def getBuildIdentifier(Project project) {
+        return getPropertyWithDefault(project, "id", "debug")
+    }
+
+    static def getPropertyWithDefault(Project project, String key, String thedefault) {
+        if (project.hasProperty(key)) {
+            return project.getProperty(key).toString()
+        }
+
+        return thedefault
+    }
+
+    static def isUsabilityBuild(Project project) {
+        return getBuildIdentifier(project) == "usability"
+    }
+
 }

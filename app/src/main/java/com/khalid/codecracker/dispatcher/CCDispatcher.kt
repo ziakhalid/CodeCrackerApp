@@ -4,10 +4,10 @@ import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.RecordedRequest
 
-class ICDispatcher(protected var fileOpener: FileOpener) : Dispatcher() {
+class CCDispatcher(protected var fileOpener: FileOpener) : Dispatcher() {
 
-    private val iCJavaApiRequestDispatcher = ICJavaApiRequestDispatcher(fileOpener)
-    private val iCLoginApiRequestDispatcher = ICLoginApiRequestDispatcher(fileOpener)
+    private val iCJavaApiRequestDispatcher = CCJavaApiRequestDispatcher(fileOpener)
+    private val iCLoginApiRequestDispatcher = CCLoginApiRequestDispatcher(fileOpener)
 
     @Throws(InterruptedException::class)
     override fun dispatch(request: RecordedRequest): MockResponse {

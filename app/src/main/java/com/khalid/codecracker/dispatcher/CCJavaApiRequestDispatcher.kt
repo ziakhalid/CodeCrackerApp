@@ -7,7 +7,7 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.InputStreamReader
 
-class ICJavaApiRequestDispatcher(fileOpner: FileOpener) : AbstractDispatcher(fileOpner) {
+class CCJavaApiRequestDispatcher(fileOpner: FileOpener) : AbstractDispatcher(fileOpner) {
 
     override fun dispatch(request: RecordedRequest): MockResponse {
 

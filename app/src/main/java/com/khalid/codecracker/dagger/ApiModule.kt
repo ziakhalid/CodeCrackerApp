@@ -1,8 +1,8 @@
 package com.khalid.codecracker.dagger
 
 import android.content.Context
-import com.khalid.codecracker.server.ICJavaApi
-import com.khalid.codecracker.server.ICJavaRestApi
+import com.khalid.codecracker.server.CCJavaApi
+import com.khalid.codecracker.server.CCJavaRestApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -13,14 +13,14 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun providesICJavaRestApi(icJavaApi: ICJavaApi, context: Context):ICJavaRestApi{
-        return ICJavaRestApi(icJavaApi, context)
+    fun providesICJavaRestApi(CCJavaApi: CCJavaApi, context: Context): CCJavaRestApi {
+        return CCJavaRestApi(CCJavaApi, context)
     }
 
     @Provides
     @Singleton
-    fun providesICJavaApi(retrofit:Retrofit): ICJavaApi{
-        return retrofit.create(ICJavaApi::class.java)
+    fun providesICJavaApi(retrofit:Retrofit): CCJavaApi {
+        return retrofit.create(CCJavaApi::class.java)
     }
 
 }

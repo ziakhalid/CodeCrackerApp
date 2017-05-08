@@ -4,14 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.codecracker.R
 import com.khalid.codecracker.fragment.HomeFragment
-import com.khalid.codecracker.fragment.QAFragment
+import com.khalid.codecracker.fragment.TopicDetailFragment
 import rx.Observer
 
 
@@ -25,7 +24,7 @@ class HomeActivity : BaseActivity() {
 
         override fun onNext(topic: String?) {
             Toast.makeText(this@HomeActivity, "Topic: $topic Selected", Toast.LENGTH_LONG).show()
-            changeFragment(QAFragment(), QAFragment::class.java.simpleName, isReplaceFragment = false)
+            changeFragment(TopicDetailFragment(), TopicDetailFragment::class.java.simpleName, isReplaceFragment = false)
         }
 
         override fun onCompleted() {
@@ -57,7 +56,7 @@ class HomeActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId){
-            R.id.menu_settings -> startActivity(Intent(this@HomeActivity, ICPreferenceActivity::class.java))
+            R.id.menu_settings -> startActivity(Intent(this@HomeActivity, CCPreferenceActivity::class.java))
         }
         return true
     }

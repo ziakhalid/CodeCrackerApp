@@ -1,24 +1,21 @@
 package com.khalid.codecracker.server
 
-import android.content.Context
-import com.khalid.codecracker.dispatcher.FileSystemOpener
-import com.khalid.codecracker.dispatcher.ICDispatcher
+import com.khalid.codecracker.dispatcher.CCDispatcher
 import com.khalid.codecracker.util.AndroidFileOpener
 import okhttp3.mockwebserver.MockWebServer
-import java.io.File
 import java.net.InetAddress
 
-class ICMockWebServer() {
+class CCMockWebServer() {
 
     var mockWebServer: MockWebServer
-    val dispatcher: ICDispatcher
+    val dispatcher: CCDispatcher
 
     init {
         mockWebServer = MockWebServer()
 
         val openerAndroid = AndroidFileOpener()
 
-        dispatcher = ICDispatcher(openerAndroid)
+        dispatcher = CCDispatcher(openerAndroid)
         mockWebServer.setDispatcher(dispatcher)
     }
 

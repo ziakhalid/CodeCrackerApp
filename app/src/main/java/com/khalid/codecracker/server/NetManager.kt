@@ -4,7 +4,7 @@ import com.khalid.codecracker.model.TopicItem
 import rx.Observable
 import javax.inject.Inject
 
-class NetManager @Inject constructor(private val api:ICJavaRestApi){
+class NetManager @Inject constructor(private val api: CCJavaRestApi){
 
    fun getICTopics():Observable<List<TopicItem>>{
        return Observable.create { subscriber ->

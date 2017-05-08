@@ -5,7 +5,7 @@ import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.RecordedRequest
 
 
-class ICLoginApiRequestDispatcher(fileOpener: FileOpener) : AbstractDispatcher(fileOpener) {
+class CCLoginApiRequestDispatcher(fileOpener: FileOpener) : AbstractDispatcher(fileOpener) {
 
     override fun dispatch(request: RecordedRequest): MockResponse {
 

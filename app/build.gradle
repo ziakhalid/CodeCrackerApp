@@ -3,12 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
-        applicationId "com.codecracker"
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
@@ -16,9 +17,40 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            applicationIdSuffix("." + GradleUtil.getBuildIdentifier(project))
+        }
         release {
+            if (GradleUtil.isUsabilityBuild(project)) {
+                applicationIdSuffix("." + GradleUtil.getBuildIdentifier(project))
+            }
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        javaCrack {
+            applicationId "com.khalid.javaCrack"
+
+            def major = 1
+            def minor = 0
+            def patch = 0
+            def build = 0
+            versionCode GradleUtil.versionCode(major, minor, patch, build)
+            versionName GradleUtil.versionName(major, minor, patch, build)
+
+        }
+        androidCrack {
+            applicationId "com.khalid.androidCrack"
+
+            def major = 1
+            def minor = 0
+            def patch = 0
+            def build = 0
+            versionCode GradleUtil.versionCode(major, minor, patch, build)
+            versionName GradleUtil.versionName(major, minor, patch, build)
+
         }
     }
     sourceSets {
@@ -56,7 +88,6 @@ dependencies {
     compile "io.reactivex:rxjava:${rxjava_version}"
     compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'
 
-
     // Dagger 2
     compile "com.google.dagger:dagger:${dagger_version}"
     kapt "com.google.dagger:dagger-compiler:${dagger_version}"
@@ -77,6 +108,11 @@ dependencies {
     debugCompile "com.facebook.stetho:stetho:${stethoVersion}"
     debugCompile "com.facebook.stetho:stetho-okhttp3:${stethoVersion}"
 
+    // Fabric Crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+
     //TEST COMPILE
     testCompile 'junit:junit:4.12'
 
@@ -89,7 +125,7 @@ dependencies {
     androidTestCompile("com.android.support.test.espresso:espresso-core:${espressoVersion}", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    androidTestCompile ("com.android.support.test.espresso:espresso-contrib:${espressoVersion}") {
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:${espressoVersion}") {
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
         exclude module: 'support-v13'
@@ -99,8 +135,75 @@ dependencies {
 
 }
 repositories {
+    maven { url 'https://maven.fabric.io/public' }
     mavenCentral()
     maven {
         url "http://repository.jetbrains.com/all"
     }
+}
+
+public class GradleUtil {
+
+    static def isDefined(s) {
+        return s != null && !s.isEmpty() && s != "null"
+    }
+
+    static def getBuildIdentifier(Project project) {
+        return getPropertyWithDefault(project, "id", "debug")
+    }
+
+    static def getPropertyWithDefault(Project project, String key, String thedefault) {
+        if (project.hasProperty(key)) {
+            return project.getProperty(key).toString()
+        }
+
+        return thedefault
+    }
+
+    static def isUsabilityBuild(Project project) {
+        return getBuildIdentifier(project) == "usability"
+    }
+
+    static def versionCode(major, minor, patch, build) {
+        return major * 1000000 + minor * 10000 + patch * 100 + build
+    }
+
+    static def versionName(major, minor, patch, build) {
+        def name = "${major}.${minor}.${patch}"
+        if (build > 0) {
+            name = "${name}.${build}"
+        }
+        return name
+    }
+
+    static def getAppName(Project project, variant) {
+        // Don't touch release builds
+        if (variant.buildType.name == "release" || isUsabilityBuild(project)) {
+            return null
+        }
+
+        def flavor = variant.productFlavors.get(0).name
+        flavor = flavor.capitalize()
+
+        def type = variant.buildType.name
+        if (type == "debug") {
+            type = getBuildIdentifier(project)
+        }
+        type = type.capitalize()
+
+        def appname = flavor + " " + type
+        return appname.tr('_', '.')
+    }
+}
+
+
+android.applicationVariants.all { variant ->
+
+    def launcherName = GradleUtil.getAppName(project, variant)
+    if (!GradleUtil.isDefined(launcherName)) {
+        // Must be a release build, so we default to app_name
+        launcherName = "@string/app_name"
+    }
+    variant.resValue "string", "launcher_name", "${launcherName}"
+
 }

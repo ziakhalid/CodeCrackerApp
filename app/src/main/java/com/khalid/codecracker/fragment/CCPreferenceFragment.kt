@@ -9,9 +9,8 @@ import android.os.Bundle
 import android.preference.ListPreference
 import com.codecracker.BuildConfig
 import com.codecracker.R
-import com.khalid.codecracker.util.SettingUtils
 
-class ICPreferenceFragment : BasePreferenceFragment() {
+class CCPreferenceFragment : BasePreferenceFragment() {
 
     override fun onStart() {
         super.onStart()

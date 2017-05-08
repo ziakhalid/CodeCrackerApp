@@ -1,12 +1,11 @@
 package com.khalid.codecracker.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.codecracker.R
-import com.khalid.codecracker.fragment.ICPreferenceFragment
+import com.khalid.codecracker.fragment.CCPreferenceFragment
 
-open class ICPreferenceActivity : BaseActivity() {
+open class CCPreferenceActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +16,7 @@ open class ICPreferenceActivity : BaseActivity() {
 
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, ICPreferenceFragment())
+                .replace(R.id.fragment_container, CCPreferenceFragment())
                 .commit()
     }
 

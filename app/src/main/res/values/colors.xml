@@ -16,4 +16,7 @@
 
     <color name="lighter_gray_no_transparent">#FFDDDDDD</color>
 
+    <color name="solution_detail_divider">#CACACA</color>
+
+
 </resources>

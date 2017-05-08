@@ -21,6 +21,8 @@ import javax.inject.Inject
 open class HomeFragment : BaseFragment(), TopicsDelegateAdapter.onViewSelectedListener {
 
     lateinit var buttonClickObserver:Observer<String>
+    lateinit var topicsList:RecyclerView
+    @Inject lateinit var netManager:NetManager
 
     companion object {
         fun getInstance(buttonClickObserver: Observer<String>): HomeFragment {
@@ -31,14 +33,9 @@ open class HomeFragment : BaseFragment(), TopicsDelegateAdapter.onViewSelectedLi
     }
 
     override fun onItemSelected(topic: String) {
-
         val subscription = Observable.create<String> { subscriber -> subscriber.onNext(topic) }.subscribe(buttonClickObserver)
         subscriptions.add(subscription)
     }
-
-//    val topicsList by lazy { topics_list }
-    lateinit var topicsList:RecyclerView
-    @Inject lateinit var netManager:NetManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

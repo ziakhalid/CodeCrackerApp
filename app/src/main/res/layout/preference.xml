@@ -54,7 +54,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
 
-            <TextView
+            <com.khalid.codecracker.widget.TextView
                 android:id="@+android:id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,7 +64,8 @@
                 android:ellipsize="marquee"
                 android:fadingEdge="horizontal" />
 
-            <TextView android:id="@android:id/summary"
+            <com.khalid.codecracker.widget.TextView
+                android:id="@android:id/summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@android:id/title"

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
@@ -40,7 +39,7 @@ class LoginActivity: BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId){
-            R.id.menu_settings -> startActivity(Intent(this@LoginActivity, ICPreferenceActivity::class.java))
+            R.id.menu_settings -> startActivity(Intent(this@LoginActivity, CCPreferenceActivity::class.java))
         }
         return true
     }

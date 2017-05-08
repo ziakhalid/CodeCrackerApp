@@ -5,13 +5,13 @@ import java.util.concurrent.CountDownLatch;
 import android.content.Context;
 
 import com.codecracker.R;
-import com.khalid.codecracker.dispatcher.ICDispatcher;
+import com.khalid.codecracker.dispatcher.CCDispatcher;
 import com.khalid.codecracker.util.SettingUtils;
 
 
 public class MockModeShim {
 
-	private static ICMockWebServer server = null;
+	private static CCMockWebServer server = null;
 
 	public static void initMockWebServer(Context c) {
 		final Context context = c.getApplicationContext();
@@ -25,7 +25,7 @@ public class MockModeShim {
 					server.shutdown();
 					server = null;
 				}
-				server = new ICMockWebServer();
+				server = new CCMockWebServer();
 				server.start();
 				SettingUtils.save(context, R.string.preference_mock_server_address, server.getHostWithPort());
 				latch.countDown();
@@ -52,7 +52,7 @@ public class MockModeShim {
 		}).start();
 	}
 
-	public static ICDispatcher getDispatcher() {
+	public static CCDispatcher getDispatcher() {
 		return server.getDispatcher();
 	}
 }

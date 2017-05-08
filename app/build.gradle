@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -106,6 +108,11 @@ dependencies {
     debugCompile "com.facebook.stetho:stetho:${stethoVersion}"
     debugCompile "com.facebook.stetho:stetho-okhttp3:${stethoVersion}"
 
+    // Fabric Crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+
     //TEST COMPILE
     testCompile 'junit:junit:4.12'
 
@@ -128,6 +135,7 @@ dependencies {
 
 }
 repositories {
+    maven { url 'https://maven.fabric.io/public' }
     mavenCentral()
     maven {
         url "http://repository.jetbrains.com/all"

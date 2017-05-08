@@ -73,7 +73,7 @@ dependencies {
     //DEBUG COMPILE
     debugCompile "com.squareup.okhttp3:mockwebserver:${okhttp_version}"
 
-    def stethoVersion = '1.4.2'
+    def stethoVersion = '1.5.0'
     debugCompile "com.facebook.stetho:stetho:${stethoVersion}"
     debugCompile "com.facebook.stetho:stetho-okhttp3:${stethoVersion}"
 

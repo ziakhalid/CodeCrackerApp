@@ -20,7 +20,7 @@ class LauncherActivityUITest {
     @Test
     fun shouldShowWelcomeText() {
         onView(withId(R.id.welcome_message)).check(matches(isDisplayed()))
-        onView(withId(R.id.welcome_message)).check(matches(withText("codecracker")))
+        onView(withId(R.id.welcome_message)).check(matches(withText("JavaCracker")))
     }
 
     @Test

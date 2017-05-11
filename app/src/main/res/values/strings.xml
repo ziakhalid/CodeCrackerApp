@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CodeCracker</string>
+    <string name="app_name">JavaCracker</string>
 
     <!--Preference Key-->
     <string name="preference_mock_server_address">proxy_mock_address</string>

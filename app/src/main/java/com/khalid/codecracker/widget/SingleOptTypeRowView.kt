@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.codecracker.R
 import com.khalid.codecracker.util.AnimUtils
+import com.khalid.codecracker.util.subscribeText
 import com.khalid.codecracker.utility.bindView
 import com.khalid.codecracker.utility.notNullAndObservable
 import com.khalid.codecracker.viewmodel.SingleOptTypeRowViewModel
@@ -24,6 +25,8 @@ class SingleOptTypeRowView(context: Context, attrs: AttributeSet?) : LinearLayou
     val solInfoChevron: ImageView by bindView(R.id.sol_info_chevron)
     val solInfoHeader: TextView by bindView(R.id.sol_info_header_text)
     val solInfoDivider: View by bindView(R.id.sol_info_divider)
+    val questionText: TextView by bindView(R.id.txt_question)
+    val solutionText: TextView by bindView(R.id.sol_info_description_text)
     private val solInfoContainer: RelativeLayout by bindView(R.id.sol_info_container)
     private val solInfoDescriptionText: TextView by bindView(R.id.sol_info_description_text)
 
@@ -36,16 +39,19 @@ class SingleOptTypeRowView(context: Context, attrs: AttributeSet?) : LinearLayou
     var solInfoDescriptionTextHeight = -1
     var solInfoChevronHeight = -1
 
-    var viewModel: SingleOptTypeRowViewModel by notNullAndObservable {
+    var viewModel: SingleOptTypeRowViewModel by notNullAndObservable { vm ->
 
-/*        solInfoContainer.setOnClickListener {
+        solInfoContainer.setOnClickListener {
             if (solInfoDescriptionText.visibility == View.GONE) {
                 expandSolInformation()
             } else {
                 collapseSolInformation()
             }
+        }
 
-        }*/
+        vm.questionObservable.subscribeText(questionText)
+        vm.solutionObservable.subscribeText(solutionText)
+
     }
 
     init {
@@ -69,15 +75,6 @@ class SingleOptTypeRowView(context: Context, attrs: AttributeSet?) : LinearLayou
         row.viewTreeObserver.addOnGlobalLayoutListener(globalLayoutListener)
 
         viewSetup()
-
-        solInfoContainer.setOnClickListener {
-            if (solInfoDescriptionText.visibility == View.GONE) {
-                expandSolInformation()
-            } else {
-                collapseSolInformation()
-            }
-
-        }
 
     }
 

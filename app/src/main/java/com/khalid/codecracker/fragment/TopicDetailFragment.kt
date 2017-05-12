@@ -64,10 +64,13 @@ class TopicDetailFragment : BaseFragment(), SingleOptTypeDeligateAdapter.onViewS
     private fun requestTopic() {
 
         val myTestList = ArrayList<TopicDetailItem>()
-        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question?", "Here is the solutoin!!"))
-        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question?", "Here is the solutoin!!"))
-        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question?", "Here is the solutoin!!"))
-        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question1?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question2?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question3?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question4?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question5?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question6?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question7?", "Here is the solutoin!!"))
 
         (topicsDetailList.adapter as TopicDetailAdapter).addTopicsDetail(myTestList)
 

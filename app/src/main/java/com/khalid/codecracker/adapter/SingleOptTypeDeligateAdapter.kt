@@ -30,7 +30,7 @@ class SingleOptTypeDeligateAdapter(val viewAction: onViewSelectedListener) : Vie
     inner class SingleQueTypeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.single_opt_type)) {
 
         fun bind(item: TopicDetailItem) = with(itemView) {
-            singleOptTypeRowView.txt_question.text = item.question
+//            singleOptTypeRowView.txt_question.text = item.question
             singleOptTypeRowView.viewModel = SingleOptTypeRowViewModel(item)
             super.itemView.setOnClickListener { viewAction.onItemSelected("Hi There") }
         }

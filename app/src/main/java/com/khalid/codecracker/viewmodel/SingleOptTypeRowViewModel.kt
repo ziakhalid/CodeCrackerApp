@@ -8,5 +8,4 @@ class SingleOptTypeRowViewModel (item: TopicDetailItem){
     var questionObservable = BehaviorSubject.create<String>(item.question)
     var solutionObservable = BehaviorSubject.create<String>(item.solution)
 
-
 }

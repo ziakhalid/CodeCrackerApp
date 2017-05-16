@@ -7,6 +7,8 @@ import com.droidcba.kedditbysteps.commons.adapter.ViewType
 import com.droidcba.kedditbysteps.commons.adapter.ViewTypeDelegateAdapter
 import com.khalid.codecracker.extensions.inflate
 import com.khalid.codecracker.model.TopicDetailItem
+import com.khalid.codecracker.viewmodel.SingleOptTypeRowViewModel
+import kotlinx.android.synthetic.main.single_opt_type.view.*
 import kotlinx.android.synthetic.main.single_opt_type_row.view.*
 
 
@@ -28,7 +30,8 @@ class SingleOptTypeDeligateAdapter(val viewAction: onViewSelectedListener) : Vie
     inner class SingleQueTypeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.single_opt_type)) {
 
         fun bind(item: TopicDetailItem) = with(itemView) {
-            txt_question.text = item.question
+            singleOptTypeRowView.txt_question.text = item.question
+            singleOptTypeRowView.viewModel = SingleOptTypeRowViewModel(item)
             super.itemView.setOnClickListener { viewAction.onItemSelected("Hi There") }
         }
 

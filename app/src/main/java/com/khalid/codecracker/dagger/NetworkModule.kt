@@ -3,6 +3,7 @@ package com.khalid.codecracker.dagger
 import android.content.Context
 import com.codecracker.BuildConfig
 import com.khalid.codecracker.services.EndpointProvider
+import com.khalid.codecracker.util.MCacheInterceptor
 import com.khalid.codecracker.utils.OKHttpClientFactory
 import dagger.Module
 import dagger.Provides
@@ -53,10 +54,16 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideOkHttpClientFactory(context: Context, cache: Cache,
-                                            httpLoggingInterceptor: HttpLoggingInterceptor, endpointProvider: EndpointProvider): OKHttpClientFactory {
+    internal fun provideCacheInterceptor(): MCacheInterceptor{
+        return MCacheInterceptor()
+    }
 
-        return OKHttpClientFactory(context, cache, httpLoggingInterceptor, endpointProvider)
+    @Provides
+    @Singleton
+    internal fun provideOkHttpClientFactory(context: Context, cache: Cache,
+                                            httpLoggingInterceptor: HttpLoggingInterceptor, mCacheInterceptor: MCacheInterceptor, endpointProvider: EndpointProvider): OKHttpClientFactory {
+
+        return OKHttpClientFactory(context, cache, httpLoggingInterceptor, mCacheInterceptor, endpointProvider)
     }
 
     @Provides

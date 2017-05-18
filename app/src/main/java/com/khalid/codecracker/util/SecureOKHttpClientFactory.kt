@@ -1,13 +1,10 @@
 package com.khalid.codecracker.util
 
-import android.content.Context
-import com.khalid.codecracker.services.EndpointProvider
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 
-abstract class SecureOKHttpClientFactory(protected val context: Context, private val cache: Cache,
-                                         protected val endpointProvider: EndpointProvider) {
+abstract class SecureOKHttpClientFactory(private val cache: Cache) {
 
 
     fun getOkHttpClient(): OkHttpClient {

@@ -1,14 +1,12 @@
 package com.khalid.codecracker.util
 
 import android.content.Context
-import com.khalid.codecracker.server.EndpointProvider
+import com.khalid.codecracker.services.EndpointProvider
 import okhttp3.Cache
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 
 abstract class SecureOKHttpClientFactory(protected val context: Context, private val cache: Cache,
-                                         private val logLevel: HttpLoggingInterceptor.Level,
                                          protected val endpointProvider: EndpointProvider) {
 
 
@@ -21,7 +19,7 @@ abstract class SecureOKHttpClientFactory(protected val context: Context, private
 
         val clientBuilder = OkHttpClient().newBuilder()
         setupClient(clientBuilder, cache)
-        addInterceptors(clientBuilder, logLevel)
+        addInterceptors(clientBuilder)
 
         return clientBuilder
     }
@@ -33,10 +31,8 @@ abstract class SecureOKHttpClientFactory(protected val context: Context, private
         client.readTimeout(60L, TimeUnit.SECONDS)
     }
 
-    protected open fun addInterceptors(client: OkHttpClient.Builder, logLevel: HttpLoggingInterceptor.Level) {
-        val logger = HttpLoggingInterceptor()
-        logger.level = logLevel
-        client.addInterceptor(logger)
+    protected open fun addInterceptors(client: OkHttpClient.Builder) {
+        //No interceptors for secure OKHttpClient
     }
 
 

@@ -11,10 +11,10 @@ import com.khalid.codecracker.CCApplication
 import com.khalid.codecracker.adapter.TopicsAdapter
 import com.khalid.codecracker.adapter.TopicsDelegateAdapter
 import com.khalid.codecracker.extensions.inflate
-import com.khalid.codecracker.server.NetManager
+import com.khalid.codecracker.model.TopicItem
+import com.khalid.codecracker.services.JavaCrackerServices
 import rx.Observable
 import rx.Observer
-import rx.schedulers.Schedulers
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -22,7 +22,7 @@ open class HomeFragment : BaseFragment(), TopicsDelegateAdapter.onViewSelectedLi
 
     lateinit var buttonClickObserver:Observer<String>
     lateinit var topicsList:RecyclerView
-    @Inject lateinit var netManager:NetManager
+    @Inject lateinit var javaCrackerServices: JavaCrackerServices
 
     companion object {
         fun getInstance(buttonClickObserver: Observer<String>): HomeFragment {
@@ -68,11 +68,24 @@ open class HomeFragment : BaseFragment(), TopicsDelegateAdapter.onViewSelectedLi
     }
 
     private fun requestTopic() {
+        subscriptions.add(javaCrackerServices.getJavaCrackerTopics(getJavaCrackerTopicObserver()))
+    }
 
-        val subscription = netManager.getICTopics()
-                .subscribeOn(Schedulers.io())
-                .subscribe({ retrievedTopics -> (topicsList.adapter as TopicsAdapter).addTopics(retrievedTopics) }, { e -> Timber.e("Error occured: $e") })
-        subscriptions.add(subscription)
+    fun getJavaCrackerTopicObserver(): Observer<List<TopicItem>> {
+        val javaCrackerTopicObserver = object : Observer<List<TopicItem>> {
+            override fun onCompleted() {
+                Timber.d("Topics download completed")
+            }
+
+            override fun onError(e: Throwable?) {
+                Timber.e("Error : $e")
+            }
+
+            override fun onNext(topics: List<TopicItem>) {
+                (topicsList.adapter as TopicsAdapter).addTopics(topics)
+            }
+        }
+        return javaCrackerTopicObserver
     }
 
 }

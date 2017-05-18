@@ -31,8 +31,8 @@ class CCApplication : Application() {
             Timber.plant(Timber.DebugTree())
         }
 
-        if (appComponent.endpointProvider().endPoint == com.khalid.codecracker.server.EndPoint.MOCK_MODE){
-            com.khalid.codecracker.server.MockModeShim.initMockWebServer(this)
+        if (appComponent.endpointProvider().endPoint == com.khalid.codecracker.services.EndPoint.MOCK_MODE){
+            com.khalid.codecracker.services.MockModeShim.initMockWebServer(this)
         }
 
     }

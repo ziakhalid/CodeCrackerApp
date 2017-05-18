@@ -96,6 +96,7 @@ dependencies {
     // Retrofit
     compile "com.squareup.retrofit2:retrofit:${retrofit2_version}"
     compile "com.squareup.retrofit2:converter-moshi:${retrofit2_version}"
+    compile "com.squareup.retrofit2:adapter-rxjava:${retrofit2_version}"
     compile "com.squareup.okhttp3:logging-interceptor:${okhttp_version}"
 
     //Timber

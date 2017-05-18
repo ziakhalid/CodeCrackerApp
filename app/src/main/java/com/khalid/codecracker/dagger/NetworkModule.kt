@@ -2,15 +2,13 @@ package com.khalid.codecracker.dagger
 
 import android.content.Context
 import com.codecracker.BuildConfig
-import com.khalid.codecracker.server.EndpointProvider
+import com.khalid.codecracker.services.EndpointProvider
 import com.khalid.codecracker.utils.OKHttpClientFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.File
 import javax.inject.Singleton
 
@@ -47,10 +45,18 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideOkHttpClientFactory(context: Context, cache: Cache,
-                                            logLevel: HttpLoggingInterceptor.Level, endpointProvider: EndpointProvider): OKHttpClientFactory {
+    internal fun provideHttpLoggingInterceptor(logLevel: HttpLoggingInterceptor.Level): HttpLoggingInterceptor {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.level = logLevel
+        return httpLoggingInterceptor
+    }
 
-        return OKHttpClientFactory(context, cache, logLevel, endpointProvider)
+    @Provides
+    @Singleton
+    internal fun provideOkHttpClientFactory(context: Context, cache: Cache,
+                                            httpLoggingInterceptor: HttpLoggingInterceptor, endpointProvider: EndpointProvider): OKHttpClientFactory {
+
+        return OKHttpClientFactory(context, cache, httpLoggingInterceptor, endpointProvider)
     }
 
     @Provides
@@ -59,21 +65,4 @@ class NetworkModule {
         return okHttpClientFactory.getOkHttpClient()
     }
 
-    @Provides
-    @Singleton
-    fun providesRetrofit(endpointProvider: com.khalid.codecracker.server.EndpointProvider): Retrofit {
-
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
-        val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(logging)
-
-        val retrofit = Retrofit.Builder()
-                .baseUrl(endpointProvider.javaEndpointUrl)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .client(httpClient.build())
-                .build()
-
-        return retrofit
-    }
 }

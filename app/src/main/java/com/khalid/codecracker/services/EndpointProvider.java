@@ -1,10 +1,9 @@
-package com.khalid.codecracker.server;
+package com.khalid.codecracker.services;
 
 
 import android.content.Context;
 
 import com.codecracker.R;
-import com.khalid.codecracker.util.SettingUtils;
 import com.khalid.codecracker.util.SettingUtils;
 
 public class EndpointProvider {

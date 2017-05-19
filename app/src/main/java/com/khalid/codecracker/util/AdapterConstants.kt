@@ -6,4 +6,5 @@ object AdapterConstants {
     val LOADING = 2
     val SINGLE_OPT_TYPE = 3
     val MULTIPLE_OPT_TYPE = 4
+    val NOTE = 5
 }

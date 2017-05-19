@@ -19,6 +19,7 @@
     <string name="sign_in">Sign In</string>
 
     <!--Test-->
+    <string name="txt_note">Note</string>
     <string name="dummy_que_text">Which method names follow the JavaBeans standard? (Choose all that apply.)</string>
     <string name="dummy_sol_text">The following questions will help you measure your understanding of the material presented in this chapter. Read all of the choices carefully, as there may be more than one correct answer. Choose all correct answers for each question. Stay focused.</string>
 

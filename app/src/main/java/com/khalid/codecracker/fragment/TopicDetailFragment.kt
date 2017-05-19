@@ -20,7 +20,6 @@ class TopicDetailFragment : BaseFragment(), SingleOptTypeDeligateAdapter.onViewS
 
     override fun onItemSelected(topic: String) {
 
-
     }
 
     companion object{
@@ -65,10 +64,10 @@ class TopicDetailFragment : BaseFragment(), SingleOptTypeDeligateAdapter.onViewS
 
         val myTestList = ArrayList<TopicDetailItem>()
         myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question1?", "Here is the solutoin!!"))
-        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question2?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","note", "This is the Question2?", "Here is the solutoin!!"))
         myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question3?", "Here is the solutoin!!"))
         myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question4?", "Here is the solutoin!!"))
-        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question5?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","note", "This is the Question5?", "Here is the solutoin!!"))
         myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question6?", "Here is the solutoin!!"))
         myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question7?", "Here is the solutoin!!"))
 

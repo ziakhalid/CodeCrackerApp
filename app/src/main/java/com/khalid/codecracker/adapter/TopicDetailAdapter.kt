@@ -20,6 +20,7 @@ class TopicDetailAdapter(listener: SingleOptTypeDeligateAdapter.onViewSelectedLi
     init {
         delegateAdapter.put(AdapterConstants.LOADING, LoadingDelegateAdapter())
         delegateAdapter.put(AdapterConstants.SINGLE_OPT_TYPE, SingleOptTypeDeligateAdapter(listener))
+        delegateAdapter.put(AdapterConstants.NOTE, NoteTypeDeligateAdapter())
         items = ArrayList()
         items.add(loadingItem)
     }

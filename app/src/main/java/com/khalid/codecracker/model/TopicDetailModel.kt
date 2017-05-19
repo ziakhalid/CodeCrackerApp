@@ -8,6 +8,7 @@ data class TopicDetailItem(val id:String, val itemType: String, val question: St
 
         return when {
             itemType == "SingleOptionType" -> AdapterConstants.SINGLE_OPT_TYPE
+            itemType == "note" -> AdapterConstants.NOTE
             else -> AdapterConstants.DEFAULT
         }
     }

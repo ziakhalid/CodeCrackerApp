@@ -1,4 +1,4 @@
-package com.khalid.codecracker.server;
+package com.khalid.codecracker.services;
 
 public enum EndPoint {
 	PRODUCTION,

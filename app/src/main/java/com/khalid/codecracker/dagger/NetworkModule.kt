@@ -1,13 +1,16 @@
 package com.khalid.codecracker.dagger
 
 import android.content.Context
-import com.khalid.codecracker.server.EndpointProvider
+import com.codecracker.BuildConfig
+import com.khalid.codecracker.services.EndpointProvider
+import com.khalid.codecracker.util.MCacheInterceptor
+import com.khalid.codecracker.utils.OKHttpClientFactory
 import dagger.Module
 import dagger.Provides
+import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import java.io.File
 import javax.inject.Singleton
 
 @Module
@@ -15,25 +18,58 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesEndpointProvider(context: Context): com.khalid.codecracker.server.EndpointProvider {
-        return com.khalid.codecracker.server.EndpointProvider(context)
+    fun providesEndpointProvider(context: Context): EndpointProvider {
+        return EndpointProvider(context)
     }
 
     @Provides
     @Singleton
-    fun providesRetrofit(endpointProvider: com.khalid.codecracker.server.EndpointProvider): Retrofit {
+    internal fun provideOkHttpDiskCache(context: Context): Cache {
+        val directory = File(context.cacheDir, "okhttp")
+        if (!directory.exists()) {
+            directory.mkdirs()
+        }
 
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
-        val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(logging)
+        val size = (10 * 1024 * 1024).toLong() // 10MB
 
-        val retrofit = Retrofit.Builder()
-                .baseUrl(endpointProvider.javaEndpointUrl)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .client(httpClient.build())
-                .build()
-
-        return retrofit
+        return Cache(directory, size)
     }
+
+    @Provides
+    @Singleton
+    internal fun provideLogLevel(): HttpLoggingInterceptor.Level {
+        if (BuildConfig.DEBUG) {
+            return HttpLoggingInterceptor.Level.BODY
+        }
+        return HttpLoggingInterceptor.Level.NONE
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideHttpLoggingInterceptor(logLevel: HttpLoggingInterceptor.Level): HttpLoggingInterceptor {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.level = logLevel
+        return httpLoggingInterceptor
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideCacheInterceptor(): MCacheInterceptor{
+        return MCacheInterceptor()
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideOkHttpClientFactory(context: Context, cache: Cache,
+                                            httpLoggingInterceptor: HttpLoggingInterceptor, mCacheInterceptor: MCacheInterceptor, endpointProvider: EndpointProvider): OKHttpClientFactory {
+
+        return OKHttpClientFactory(context, cache, httpLoggingInterceptor, mCacheInterceptor, endpointProvider)
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideOkHttpClient(okHttpClientFactory: OKHttpClientFactory): OkHttpClient {
+        return okHttpClientFactory.getOkHttpClient()
+    }
+
 }

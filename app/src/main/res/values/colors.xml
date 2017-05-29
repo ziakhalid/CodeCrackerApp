@@ -7,6 +7,11 @@
     <color name="textColorLauncher">#ffffff</color>
     <color name="qa_text_color">@color/gray7</color>
 
+    <!--Background-->
+    <color name="topic_detail_background">@color/gray1</color>
+    <color name="home_fragment_background">@color/gray1</color>
+
+
     <!-- Preferences Activity -->
     <color name="preferences_text">#495863</color>
     <color name="preferences_activity_bg">#eceff1</color>

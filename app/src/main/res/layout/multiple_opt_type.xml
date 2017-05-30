@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-    <com.khalid.codecracker.widget.SingleOptTypeRowView
-        android:id="@+id/singleOptTypeRowView"
+    <com.khalid.codecracker.widget.MultipleOptTypeRowView
+        android:id="@+id/multipleOptTypeRowView"
         android:layout_height="match_parent"
         android:layout_width="match_parent" />
 

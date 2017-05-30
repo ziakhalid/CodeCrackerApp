@@ -7,9 +7,8 @@ import com.droidcba.kedditbysteps.commons.adapter.ViewType
 import com.droidcba.kedditbysteps.commons.adapter.ViewTypeDelegateAdapter
 import com.khalid.codecracker.extensions.inflate
 import com.khalid.codecracker.model.TopicDetailItem
-import com.khalid.codecracker.viewmodel.SingleOptTypeRowViewModel
-import kotlinx.android.synthetic.main.single_opt_type.view.*
-import kotlinx.android.synthetic.main.single_opt_type_row.view.*
+import com.khalid.codecracker.viewmodel.MultipleOptTypeRowViewModel
+import kotlinx.android.synthetic.main.multiple_opt_type.view.*
 
 
 class MultipleOptTypeDeligateAdapter : ViewTypeDelegateAdapter {
@@ -19,20 +18,19 @@ class MultipleOptTypeDeligateAdapter : ViewTypeDelegateAdapter {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
-        return SingleQueTypeViewHolder(parent)
+        return MultipleOptTypeViewHolder(parent)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType) {
-        holder as SingleQueTypeViewHolder
+        holder as MultipleOptTypeViewHolder
         holder.bind(item as TopicDetailItem)
     }
 
-    inner class SingleQueTypeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.single_opt_type)) {
+    inner class MultipleOptTypeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.multiple_opt_type)) {
 
         fun bind(item: TopicDetailItem) = with(itemView) {
+            multipleOptTypeRowView.viewModel = MultipleOptTypeRowViewModel(item)
         }
-
-
     }
 
 }

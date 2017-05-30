@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "questionType": "NOTE",
+    "note": "Here is the note sir",
+    "singleOptTypeQue": null,
+    "multipleOptTypeQue": null
+  },
+  {
+    "id": 2,
+    "questionType": "SINGLE",
+    "note": null,
+    "singleOptTypeQue": {
+      "id": 1,
+      "question": "Single Opton question ?",
+      "solution": "Single Opt Solution"
+    },
+    "multipleOptTypeQue": null
+  },
+  {
+    "id": 3,
+    "questionType": "MULTIPLE",
+    "note": null,
+    "singleOptTypeQue": null,
+    "multipleOptTypeQue": {
+      "id": 1,
+      "question": "Multiple option question ?",
+      "options": [
+        "Option 1",
+        "Option 2",
+        "Option 3",
+        "Option 4"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "questionType": "MULTIPLE",
+    "note": null,
+    "singleOptTypeQue": null,
+    "multipleOptTypeQue": {
+      "id": 2,
+      "question": "Multiple option question ?",
+      "options": [
+        "Option 1",
+        "Option 2"
+      ]
+    }
+  }
+]

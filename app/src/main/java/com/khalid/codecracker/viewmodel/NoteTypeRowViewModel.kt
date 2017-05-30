@@ -5,5 +5,5 @@ import rx.subjects.BehaviorSubject
 
 class NoteTypeRowViewModel (item: TopicDetailItem){
 
-    var noteObservable = BehaviorSubject.create<String>(item.question)
+    var noteObservable = BehaviorSubject.create<String>(item.note)
 }

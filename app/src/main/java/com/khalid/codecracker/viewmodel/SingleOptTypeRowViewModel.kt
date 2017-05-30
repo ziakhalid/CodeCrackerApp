@@ -5,7 +5,7 @@ import rx.subjects.BehaviorSubject
 
 class SingleOptTypeRowViewModel (item: TopicDetailItem){
 
-    var questionObservable = BehaviorSubject.create<String>(item.question)
-    var solutionObservable = BehaviorSubject.create<String>(item.solution)
+    var questionObservable = BehaviorSubject.create<String>(item.singleOptTypeQue?.question)
+    var solutionObservable = BehaviorSubject.create<String>(item.singleOptTypeQue?.solution)
 
 }

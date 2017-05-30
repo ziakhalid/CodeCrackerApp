@@ -20,8 +20,9 @@
     <color name="preferences_highlight">#40000000</color>
 
     <color name="lighter_gray_no_transparent">#FFDDDDDD</color>
-
     <color name="solution_detail_divider">#CACACA</color>
+
+    <color name="option_radio_button_color">#6A6A6A</color>
 
 
 </resources>

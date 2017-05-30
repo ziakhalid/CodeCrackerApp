@@ -11,6 +11,7 @@ import com.khalid.codecracker.CCApplication
 import com.khalid.codecracker.adapter.SingleOptTypeDeligateAdapter
 import com.khalid.codecracker.adapter.TopicDetailAdapter
 import com.khalid.codecracker.extensions.inflate
+import com.khalid.codecracker.model.MultipleOptTypeQue
 import com.khalid.codecracker.model.TopicDetailItem
 
 class TopicDetailFragment : BaseFragment(), SingleOptTypeDeligateAdapter.onViewSelectedListener {
@@ -62,14 +63,23 @@ class TopicDetailFragment : BaseFragment(), SingleOptTypeDeligateAdapter.onViewS
 
     private fun requestTopic() {
 
+/*        data class TopicDetailItem(val id: Int, val questionType: String, val note: String?,
+                                   val singleOptTypeQue: SingleOptTypeQue?, val multipleOptTypeQue: MultipleOptTypeQue?) : ViewType {*/
+
         val myTestList = ArrayList<TopicDetailItem>()
-        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question1?", "Here is the solutoin!!"))
+
+        val multipleOptTypeQue = MultipleOptTypeQue ("Multiple option question ?", listOf("option1", "option 2", "option 3"))
+
+        myTestList.add(TopicDetailItem(21,"MultipleOptionType", null, null, multipleOptTypeQue))
+/*
         myTestList.add(TopicDetailItem("21","note", "This is the Question2?", "Here is the solutoin!!"))
         myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question3?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","MultipleOptionType", "This is the Question3?", "Here is the solutoin!!"))
         myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question4?", "Here is the solutoin!!"))
         myTestList.add(TopicDetailItem("21","note", "This is the Question5?", "Here is the solutoin!!"))
         myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question6?", "Here is the solutoin!!"))
-        myTestList.add(TopicDetailItem("21","SingleOptionType", "This is the Question7?", "Here is the solutoin!!"))
+        myTestList.add(TopicDetailItem("21","MultipleOptionType", "This is the Question7?", "Here is the solutoin!!"))
+*/
 
         (topicsDetailList.adapter as TopicDetailAdapter).addTopicsDetail(myTestList)
 

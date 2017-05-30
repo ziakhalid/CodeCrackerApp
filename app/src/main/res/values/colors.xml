@@ -10,6 +10,9 @@
     <!--Background-->
     <color name="topic_detail_background">@color/gray1</color>
     <color name="home_fragment_background">@color/gray1</color>
+    <color name="cardview_background">@color/white</color>
+    <color name="correct_ans_background">@color/green_20</color>
+    <color name="wrong_ans_background">@color/red_20</color>
 
 
     <!-- Preferences Activity -->

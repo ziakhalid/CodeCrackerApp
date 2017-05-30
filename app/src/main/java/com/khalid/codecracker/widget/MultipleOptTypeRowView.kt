@@ -44,6 +44,7 @@ class MultipleOptTypeRowView(context: Context, attrs: AttributeSet?) : LinearLay
         optionBtn.setLayoutParams(params)
         optionBtn.setTypeface(font)
         optionBtn.setTextSize(12f)
+        optionBtn.setTextColor(R.color.gray2)
         optionBtn.text = option
 
         return optionBtn

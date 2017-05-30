@@ -23,4 +23,22 @@
 
     </RadioGroup>
 
+    <FrameLayout
+        android:id="@+id/submitContainer"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/correct_ans_background">
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="20dp"
+            android:background="@color/transparent"
+            android:text="SUBMIT"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </FrameLayout>
+
 </merge>

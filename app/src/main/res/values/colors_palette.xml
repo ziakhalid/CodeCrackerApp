@@ -29,4 +29,14 @@
     <color name="black_50">#80000000</color>
     <color name="black_70">#BF000000</color>
 
+
+    <!--solution bg-->
+    <color name="green_20">#3300cc00</color>
+    <color name="green_40">#4000cc00</color>
+
+    <color name="red_20">#33ff3030</color>
+    <color name="red_40">#40ff3030</color>
+
+
+
 </resources>
